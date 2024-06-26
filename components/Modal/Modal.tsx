@@ -18,6 +18,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { ScrollArea } from "../ui/scroll-area";
+import Image from "next/image";
 
 const Modal = ({ isOpen, onClose, cart, clearCart, session }: any) => {
   const [formData, setFormData] = useState<any>();
@@ -47,7 +48,6 @@ const Modal = ({ isOpen, onClose, cart, clearCart, session }: any) => {
     // TODO:GET SESSION
 
     try {
-      console.log(formData);
       const res = await fetch("http://54.80.110.251:8080/api/v1/order", {
         method: "POST",
         headers: {
@@ -89,9 +89,12 @@ const Modal = ({ isOpen, onClose, cart, clearCart, session }: any) => {
             <div className="grid md:grid-cols-[2fr_1fr] gap-12 mb-8">
               <div className="space-y-8">
                 {cart.map((c: any) => (
-                  <div className="border rounded-lg p-6 space-y-4">
+                  <div
+                    key={c.product_id}
+                    className="border rounded-lg p-6 space-y-4"
+                  >
                     <div className="flex items-center gap-4">
-                      <img
+                      <Image
                         src={c.image_url}
                         alt="Product Image"
                         width={80}

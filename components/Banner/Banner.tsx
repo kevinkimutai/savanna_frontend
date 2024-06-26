@@ -5,6 +5,7 @@
  */
 import Link from "next/link";
 import Header from "../Header/Header";
+import Image from "next/image";
 
 export default function Banner() {
   return (
@@ -28,7 +29,7 @@ export default function Banner() {
             Shop Now
           </Link>
         </div>
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           width="1200"
           height="500"

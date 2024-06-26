@@ -8,6 +8,8 @@ import qs from "query-string";
 import { debounce } from "lodash";
 import useOrderModal from "@/hooks/useOrderModal";
 import Modal from "../Modal/Modal";
+import Image from "next/image";
+import useDebouncedCallback from "@/hooks/useDebounce";
 
 const Products = ({ products, session }: any) => {
   const searchParams = useSearchParams();
@@ -38,9 +40,7 @@ const Products = ({ products, session }: any) => {
     router.push(url);
   };
 
-  const debouncedQueryHandler = useCallback(debounce(querySearchHandler, 300), [
-    currentQuery,
-  ]);
+  const debouncedQueryHandler = useDebouncedCallback(querySearchHandler, 300);
 
   const queryPageHandler = (label: string) => {
     const updatedQuery = {
@@ -119,7 +119,7 @@ const Products = ({ products, session }: any) => {
               key={product.product_id}
               className="flex flex-col items-center space-y-2 hover:scale-105 cursor-pointer"
             >
-              <img
+              <Image
                 src={product.image_url}
                 width="300"
                 height="300"
