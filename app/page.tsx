@@ -8,8 +8,6 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 export default async function Home(props: any) {
-
-
   const session = await getSession();
   const user = session?.user;
 
@@ -21,9 +19,9 @@ export default async function Home(props: any) {
 
   let url;
   if (!props.searchParams.page && !props.searchParams.search) {
-    url = "http://54.80.110.251:8080/api/v1/product";
+    url = "http://54.84.167.205/:8080/api/v1/product";
   } else {
-    const baseUrl = "http://54.80.110.251:8080/api/v1/product?";
+    const baseUrl = "http://54.84.167.205/:8080/api/v1/product?";
     const params = new URLSearchParams();
 
     if (props.searchParams.page) {
