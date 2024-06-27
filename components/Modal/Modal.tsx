@@ -48,15 +48,18 @@ const Modal = ({ isOpen, onClose, cart, clearCart, session }: any) => {
     // TODO:GET SESSION
 
     try {
-      const res = await fetch("http://54.84.167.205:8080/api/v1/order", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session}`,
-          //   Authorization: `Bearer ${session.idToken}`,
-        },
-        body: JSON.stringify(data),
-      });
+      const res = await fetch(
+        "https://savanna.kops.b2msdk.online/api/v1/order",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session}`,
+            //   Authorization: `Bearer ${session.idToken}`,
+          },
+          body: JSON.stringify(data),
+        }
+      );
       if (res.ok) {
         setphonenumber("");
         clearCart();
