@@ -48,7 +48,7 @@ const Modal = ({ isOpen, onClose, cart, clearCart, session }: any) => {
     // TODO:GET SESSION
 
     try {
-      const res = await fetch("http://54.84.167.205/8080/api/v1/order", {
+      const res = await fetch("http://54.84.167.205:8080/api/v1/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
